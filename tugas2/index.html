@@ -313,8 +313,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#menyelesaikan-fungsi-persamaan-non-linear-dengan-metode-newton-raphson" class="md-nav__link">
-    Menyelesaikan Fungsi Persamaan Non Linear dengan Metode Newton Raphson
+  <a href="#algoritma-metode-newton-raphson" class="md-nav__link">
+    Algoritma Metode Newton Raphson
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementasi" class="md-nav__link">
+    Implementasi
   </a>
   
 </li>
@@ -358,8 +365,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#menyelesaikan-fungsi-persamaan-non-linear-dengan-metode-newton-raphson" class="md-nav__link">
-    Menyelesaikan Fungsi Persamaan Non Linear dengan Metode Newton Raphson
+  <a href="#algoritma-metode-newton-raphson" class="md-nav__link">
+    Algoritma Metode Newton Raphson
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementasi" class="md-nav__link">
+    Implementasi
   </a>
   
 </li>
@@ -390,8 +404,42 @@ $$
 X_{n+1} = x_{n} + \frac{F(x_{n})}{F^{1}(x_{n})}
 $$</p>
 <h2 id="persamaan-non-linear">Persamaan Non Linear<a class="headerlink" href="#persamaan-non-linear" title="Permanent link">&para;</a></h2>
-<h2 id="menyelesaikan-fungsi-persamaan-non-linear-dengan-metode-newton-raphson">Menyelesaikan Fungsi Persamaan Non Linear dengan Metode Newton Raphson<a class="headerlink" href="#menyelesaikan-fungsi-persamaan-non-linear-dengan-metode-newton-raphson" title="Permanent link">&para;</a></h2>
-<h1 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Persamaan non-linier dapat diartikan sebagai persamaan yang tidak mengandung syarat seperti persamaan linier, sehingga persamaan non-linier dapat merupakan:</p>
+<ol>
+<li>Persamaan yang memiliki pangkat selain satu (misal: <em><span><span class="MathJax_Preview">x_2</span><script type="math/tex">x_2</script></span></em>)</li>
+<li>Persamaan yang mempunyai produk dua variabel (misal: <em><span><span class="MathJax_Preview">xyxy</span><script type="math/tex">xyxy</script></span></em>)</li>
+</ol>
+<h2 id="algoritma-metode-newton-raphson">Algoritma Metode Newton Raphson<a class="headerlink" href="#algoritma-metode-newton-raphson" title="Permanent link">&para;</a></h2>
+<p>Algoritma Metode Newton Raphson adalah sebagai berikut: </p>
+<ol>
+<li>
+<p>Definisikan fungsi <em><span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span></em> yang akan dicari akarnya. </p>
+</li>
+<li>
+<p>Tentukan harga awal / titik awal (<em><span><span class="MathJax_Preview">x0</span><script type="math/tex">x0</script></span></em>). </p>
+</li>
+<li>
+<p>Tentukan toleransi kesalahan (<em><span><span class="MathJax_Preview">ɛ</span><script type="math/tex">ɛ</script></span></em>). </p>
+</li>
+<li>
+<p>Cari turunan fungsi <em><span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span></em>. Jika <em><span><span class="MathJax_Preview">f ’(x)</span><script type="math/tex">f ’(x)</script></span></em> = 0, maka metode newton raphson tidak dapat dilanjutkan. </p>
+</li>
+<li>
+<p>Hitung nilai fungsi<em><span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span></em> dan <em><span><span class="MathJax_Preview">f ’(x)</span><script type="math/tex">f ’(x)</script></span></em> dengan menggunakan titik awal. </p>
+</li>
+<li>
+<p>Hitung nilai <em>$ x_{i+1}$</em> menggunakan rumus: 
+  $$
+  X_{n+1} = x_{n} + \frac{F(x_{n})}{F^{1}(x_{n})}
+  $$</p>
+</li>
+<li>
+<p>Hitung kesalahan <em><span><span class="MathJax_Preview">\left | x_b - x_0 \right |</span><script type="math/tex">\left | x_b - x_0 \right |</script></span></em> dan bandingkan dengan toleransi kesalahan 
+  <em><span><span class="MathJax_Preview">(ɛ)</span><script type="math/tex">(ɛ)</script></span></em>. </p>
+</li>
+<li>Jika <em><span><span class="MathJax_Preview">\left | x_b - x_0 \right | \leq  \varepsilon</span><script type="math/tex">\left | x_b - x_0 \right | \leq  \varepsilon</script></span></em>, maka dipilih akar persamaan <em><span><span class="MathJax_Preview">x_{i+1}</span><script type="math/tex">x_{i+1}</script></span></em> . Jika <em><span><span class="MathJax_Preview">\left | x_b - x_0 \right |&gt; \varepsilon</span><script type="math/tex">\left | x_b - x_0 \right |> \varepsilon</script></span></em>   , maka iterasi dilanjutkan. </li>
+<li>Akar persamaannya adalah <em><span><span class="MathJax_Preview">x_{i+1}</span><script type="math/tex">x_{i+1}</script></span></em> yang terakhir diperoleh. </li>
+</ol>
 <h2 id="implementasi">Implementasi<a class="headerlink" href="#implementasi" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 <span class="n">e</span> <span class="o">=</span> <span class="mf">2.71828</span>
@@ -406,15 +454,28 @@ $$</p>
 
 <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Masukkan nilai awal = &#39;</span><span class="p">))</span>
 <span class="n">error</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Masukkan nilai error = &#39;</span><span class="p">))</span>
+<span class="n">selisih</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">if</span> <span class="n">fungsi</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Tidak dilanjutkan karena fungsi(x) = 0&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">iterasi</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">selisih</span><span class="o">&gt;</span><span class="n">error</span> <span class="p">:</span>
+        <span class="n">iterasi</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="p">(</span><span class="n">fungsi</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">fungsiturunan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">selisih</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x1</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Iterasi ke = &quot;</span><span class="p">,</span><span class="n">iterasi</span><span class="p">,</span><span class="s2">&quot;, x = &quot;</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span> <span class="s2">&quot;, f(&quot;</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="s2">&quot;) = &quot;</span><span class="p">,</span><span class="n">fungsi</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span><span class="s2">&quot;, selisih = &quot;</span><span class="p">,</span><span class="n">error</span><span class="p">)</span>
+</pre></div>
 
-<span class="n">iterasi</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">selisih</span> <span class="o">=</span> <span class="n">error</span><span class="o">+</span><span class="mi">1</span>
-<span class="k">while</span> <span class="n">selisih</span><span class="o">&gt;</span><span class="n">error</span> <span class="p">:</span>
-    <span class="n">iterasi</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">f_2</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="p">(</span><span class="n">fungsi</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">fungsiturunan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-    <span class="n">selisih</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">f_2</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">f_2</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Iterasi ke = &quot;</span><span class="p">,</span><span class="n">iterasi</span><span class="p">,</span><span class="s2">&quot;, x = &quot;</span><span class="p">,</span><span class="n">f_2</span><span class="p">,</span> <span class="s2">&quot;, f(&quot;</span><span class="p">,</span><span class="n">f_2</span><span class="p">,</span><span class="s2">&quot;) = &quot;</span><span class="p">,</span><span class="n">fungsi</span><span class="p">(</span><span class="n">f_2</span><span class="p">),</span><span class="s2">&quot;, selisih = &quot;</span><span class="p">,</span><span class="n">error</span><span class="p">)</span>
+
+<p>Output :</p>
+<div class="codehilite"><pre><span></span><span class="n">Masukkan</span> <span class="n">nilai</span> <span class="n">awal</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Masukkan</span> <span class="n">nilai</span> <span class="n">error</span> <span class="o">=</span> <span class="mf">0.0001</span>
+<span class="n">Iterasi</span> <span class="n">ke</span> <span class="o">=</span>  <span class="mi">1</span> <span class="p">,</span> <span class="n">x</span> <span class="o">=</span>  <span class="mf">0.0</span> <span class="p">,</span> <span class="n">f</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="o">=</span>  <span class="mf">1.0</span> <span class="p">,</span> <span class="n">selisih</span> <span class="o">=</span>  <span class="mf">0.0001</span>
+<span class="n">Iterasi</span> <span class="n">ke</span> <span class="o">=</span>  <span class="mi">2</span> <span class="p">,</span> <span class="n">x</span> <span class="o">=</span>  <span class="mf">0.3333333333333333</span> <span class="p">,</span> <span class="n">f</span><span class="p">(</span> <span class="mf">0.3333333333333333</span> <span class="p">)</span> <span class="o">=</span>  <span class="mf">0.06227877883196098</span> <span class="p">,</span> <span class="n">selisih</span> <span class="o">=</span>  <span class="mf">0.0001</span>
+<span class="n">Iterasi</span> <span class="n">ke</span> <span class="o">=</span>  <span class="mi">3</span> <span class="p">,</span> <span class="n">x</span> <span class="o">=</span>  <span class="mf">0.35724635301940616</span> <span class="p">,</span> <span class="n">f</span><span class="p">(</span> <span class="mf">0.35724635301940616</span> <span class="p">)</span> <span class="o">=</span>  <span class="mf">0.0004022049593612742</span> <span class="p">,</span> <span class="n">selisih</span> <span class="o">=</span>  <span class="mf">0.0001</span>
+<span class="n">Iterasi</span> <span class="n">ke</span> <span class="o">=</span>  <span class="mi">4</span> <span class="p">,</span> <span class="n">x</span> <span class="o">=</span>  <span class="mf">0.35740281572145605</span> <span class="p">,</span> <span class="n">f</span><span class="p">(</span> <span class="mf">0.35740281572145605</span> <span class="p">)</span> <span class="o">=</span>  <span class="mf">1.734656973617632e-08</span> <span class="p">,</span> <span class="n">selisih</span> <span class="o">=</span>  <span class="mf">0.0001</span>
+<span class="n">Iterasi</span> <span class="n">ke</span> <span class="o">=</span>  <span class="mi">5</span> <span class="p">,</span> <span class="n">x</span> <span class="o">=</span>  <span class="mf">0.3574028224700733</span> <span class="p">,</span> <span class="n">f</span><span class="p">(</span> <span class="mf">0.3574028224700733</span> <span class="p">)</span> <span class="o">=</span>  <span class="o">-</span><span class="mf">6.439293542825908e-15</span> <span class="p">,</span> <span class="n">selisih</span> <span class="o">=</span>  <span class="mf">0.0001</span>
 </pre></div>
                 
                   
