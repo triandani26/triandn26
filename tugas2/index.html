@@ -13,6 +13,8 @@
         <meta name="description" content="Repository Untuk Tugas">
       
       
+        <link rel="canonical" href="https://triandani26.github.io/triandn26/tugas2/">
+      
       
         <meta name="author" content="Triandani Umiyati">
       
@@ -35,18 +37,18 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="/triandn26/assets/images/favicon.png">
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
     
     
       
-        <title>Triandani Umiyati</title>
+        <title>Metode Newton Raphson - Triandani Umiyati</title>
       
     
     
-      <link rel="stylesheet" href="/triandn26/assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
       
-        <link rel="stylesheet" href="/triandn26/assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -55,7 +57,7 @@
       
     
     
-      <script src="/triandn26/assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
@@ -64,9 +66,9 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="/triandn26/assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
     
-      <link rel="manifest" href="/triandn26/manifest.webmanifest">
+      <link rel="manifest" href="../manifest.webmanifest">
     
     
     
@@ -116,6 +118,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#metode-newton-raphson" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -138,7 +144,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                
+                Metode Newton Raphson
               
             </span>
           
@@ -249,7 +255,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/triandn26/." title="Home" class="md-nav__link">
+    <a href=".." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -261,7 +267,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/triandn26/tugas1/" title="MacLaurin" class="md-nav__link">
+    <a href="../tugas1/" title="MacLaurin" class="md-nav__link">
       MacLaurin
     </a>
   </li>
@@ -274,12 +280,89 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#persamaan-non-linear" class="md-nav__link">
+    Persamaan Non Linear
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menyelesaikan-fungsi-persamaan-non-linear-dengan-metode-newton-raphson" class="md-nav__link">
+    Menyelesaikan Fungsi Persamaan Non Linear dengan Metode Newton Raphson
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+                  <a href="https://github.com/triandani26/triandn26/edit/master/docs/tugas2.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="metode-newton-raphson">Metode Newton Raphson<a class="headerlink" href="#metode-newton-raphson" title="Permanent link">&para;</a></h1>
+<p>Metode Newton Rapshon merupakan metode pendekatan yang menggunakan satu titik awal <em><span><span class="MathJax_Preview">X_0</span><script type="math/tex">X_0</script></span></em> dan mendekatinya dengan memperhatikan gradien pada titik tersebut. Metode ini dimulai dengan mencari garis singgung kurva pada titik </p>
+<p>Perpotongan garis singgung dengan sumbu  x yaitu Xi+1, akan menjadi nilai x yang baru, dengan cara dilakukan berulang-ulang (iterasi). 
+$$
+X_{n+1} = x_{n} + \frac{F(x_{n})}{F^{1}(x_{n})}
+$$</p>
+<h2 id="persamaan-non-linear">Persamaan Non Linear<a class="headerlink" href="#persamaan-non-linear" title="Permanent link">&para;</a></h2>
+<h2 id="menyelesaikan-fungsi-persamaan-non-linear-dengan-metode-newton-raphson">Menyelesaikan Fungsi Persamaan Non Linear dengan Metode Newton Raphson<a class="headerlink" href="#menyelesaikan-fungsi-persamaan-non-linear-dengan-metode-newton-raphson" title="Permanent link">&para;</a></h2>
+<h1 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="implementasi">Implementasi<a class="headerlink" href="#implementasi" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mf">2.71828</span>
 
+<span class="k">def</span> <span class="nf">fungsi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">((</span><span class="n">e</span><span class="o">**</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">fungsiturunan</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">((</span><span class="n">e</span><span class="o">**</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Masukkan nilai awal = &#39;</span><span class="p">))</span>
+<span class="n">error</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Masukkan nilai error = &#39;</span><span class="p">))</span>
+
+<span class="n">iterasi</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">selisih</span> <span class="o">=</span> <span class="n">error</span><span class="o">+</span><span class="mi">1</span>
+<span class="k">while</span> <span class="n">selisih</span><span class="o">&gt;</span><span class="n">error</span> <span class="p">:</span>
+    <span class="n">iterasi</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">f_2</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="p">(</span><span class="n">fungsi</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">fungsiturunan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">selisih</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">f_2</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">f_2</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Iterasi ke = &quot;</span><span class="p">,</span><span class="n">iterasi</span><span class="p">,</span><span class="s2">&quot;, x = &quot;</span><span class="p">,</span><span class="n">f_2</span><span class="p">,</span> <span class="s2">&quot;, f(&quot;</span><span class="p">,</span><span class="n">f_2</span><span class="p">,</span><span class="s2">&quot;) = &quot;</span><span class="p">,</span><span class="n">fungsi</span><span class="p">(</span><span class="n">f_2</span><span class="p">),</span><span class="s2">&quot;, selisih = &quot;</span><span class="p">,</span><span class="n">error</span><span class="p">)</span>
+</pre></div>
+                
+                  
+                
+              
               
                 
 
@@ -309,7 +392,7 @@
       </div>
       
   <div class="md-footer-social">
-    <link rel="stylesheet" href="/triandn26/assets/fonts/font-awesome.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
       <a href="https://github.com/triandani26" class="md-footer-social__link fa fa-github"></a>
     
@@ -321,11 +404,11 @@
       
     </div>
     
-      <script src="/triandn26/assets/javascripts/application.c648116f.js"></script>
+      <script src="../assets/javascripts/application.c648116f.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"/triandn26"}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       
-        <script src="/triandn26/javascripts/extra.js"></script>
+        <script src="../javascripts/extra.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
