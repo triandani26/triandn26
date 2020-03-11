@@ -407,7 +407,7 @@ $$</p>
 <p>Persamaan non-linier dapat diartikan sebagai persamaan yang tidak mengandung syarat seperti persamaan linier, sehingga persamaan non-linier dapat merupakan:</p>
 <ol>
 <li>Persamaan yang memiliki pangkat selain satu (misal: <em><span><span class="MathJax_Preview">x_2</span><script type="math/tex">x_2</script></span></em>)</li>
-<li>Persamaan yang mempunyai produk dua variabel (misal: <em><span><span class="MathJax_Preview">xyxy</span><script type="math/tex">xyxy</script></span></em>)</li>
+<li>Persamaan yang mempunyai produk dua variabel (misal: <em><span><span class="MathJax_Preview">xy</span><script type="math/tex">xy</script></span></em>)</li>
 </ol>
 <h2 id="algoritma-metode-newton-raphson">Algoritma Metode Newton Raphson<a class="headerlink" href="#algoritma-metode-newton-raphson" title="Permanent link">&para;</a></h2>
 <p>Algoritma Metode Newton Raphson adalah sebagai berikut: </p>
@@ -416,7 +416,7 @@ $$</p>
 <p>Definisikan fungsi <em><span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span></em> yang akan dicari akarnya. </p>
 </li>
 <li>
-<p>Tentukan harga awal / titik awal (<em><span><span class="MathJax_Preview">x0</span><script type="math/tex">x0</script></span></em>). </p>
+<p>Tentukan harga awal / titik awal (<em><span><span class="MathJax_Preview">x_0</span><script type="math/tex">x_0</script></span></em>). </p>
 </li>
 <li>
 <p>Tentukan toleransi kesalahan (<em><span><span class="MathJax_Preview">ɛ</span><script type="math/tex">ɛ</script></span></em>). </p>
@@ -430,7 +430,7 @@ $$</p>
 <li>
 <p>Hitung nilai <em><span><span class="MathJax_Preview">x_{i+1}</span><script type="math/tex">x_{i+1}</script></span></em> menggunakan rumus: 
 $$
-  X_{n+1} = x_{n} + \frac{F(x_{n})}{F^{1}(x_{n})}
+X_{n+1} = x_{n} + \frac{F(x_{n})}{F^{1}(x_{n})}
 $$</p>
 </li>
 <li>
@@ -461,7 +461,7 @@ $$</p>
 </li>
 </ul>
 <p><span><span class="MathJax_Preview">f(1,5)=(1,5)^6-1,5-1=8,890</span><script type="math/tex">f(1,5)=(1,5)^6-1,5-1=8,890</script></span></p>
-<p><span><span class="MathJax_Preview">f'(1,5)=(1,5)^6-1,5-1=44,562</span><script type="math/tex">f'(1,5)=(1,5)^6-1,5-1=44,562</script></span></p>
+<p><span><span class="MathJax_Preview">f'(1,5)=6(1,5)^5-1=44,562</span><script type="math/tex">f'(1,5)=6(1,5)^5-1=44,562</script></span></p>
 <ul>
 <li>Nilai <span><span class="MathJax_Preview">x_{i+1}</span><script type="math/tex">x_{i+1}</script></span> adalah:</li>
 </ul>
@@ -523,7 +523,7 @@ $$</p>
 </tr>
 </tbody>
 </table>
-<p>Sampai iterasi ke-4, didapat <span><span class="MathJax_Preview">\left| x_i+1-x_i\right| \leq \varepsilon</span><script type="math/tex">\left| x_i+1-x_i\right| \leq \varepsilon</script></span> yaitu 0,000053546 <span><span class="MathJax_Preview">\geq</span><script type="math/tex">\geq</script></span> 0,0001, maka iterasi dihentikan dan didapat nilai akar <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> yaitu <span><span class="MathJax_Preview">x_{i+1}</span><script type="math/tex">x_{i+1}</script></span> = 1,134724145. </p>
+<p>Sampai iterasi ke-4, didapat <span><span class="MathJax_Preview">\left| x_{i+1} - x_i\right| \leq \varepsilon</span><script type="math/tex">\left| x_{i+1} - x_i\right| \leq \varepsilon</script></span> yaitu 0,000053546 <span><span class="MathJax_Preview">\geq</span><script type="math/tex">\geq</script></span> 0,0001, maka iterasi dihentikan dan didapat nilai akar <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> yaitu <span><span class="MathJax_Preview">x_{i+1}</span><script type="math/tex">x_{i+1}</script></span> = 1,134724145. </p>
 <p>Berikut program dari contoh soal di atas:</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 <span class="n">e</span> <span class="o">=</span> <span class="mf">2.71828</span>
