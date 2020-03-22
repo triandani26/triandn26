@@ -800,7 +800,65 @@ dimana <span><span class="MathJax_Preview">k</span><script type="math/tex">k</sc
 </table>
 <p>Dari table di atas, iterasi ke-­9 dan 10 bernilai sama dengan mempertimbangkan empat angka di belakang koma. Sehingga solusi persamaan tersebut adalah <span><span class="MathJax_Preview">x = 2.4255 y = 3.5730 z =1.9260.</span><script type="math/tex">x = 2.4255 y = 3.5730 z =1.9260.</script></span></p>
 <p><strong>Program</strong></p>
-<h3 id="metode-seidel">Metode Seidel<a class="headerlink" href="#metode-seidel" title="Permanent link">&para;</a></h3>
+<h3 id="metode-seidel"><strong>Metode Seidel</strong><a class="headerlink" href="#metode-seidel" title="Permanent link">&para;</a></h3>
+<p>Metode ini merupakan pengembangan dari metode <strong>Jacobi</strong>. Untuk menyelesaikan persamaan linier dengan metode ini, syarat yang harus dipenuhi sama dengan syarat pada metode jacobi. Rumus iterasi dari metode Seidel ialah :
+$$
+x^{(k+1)}=\frac{1}{a_{ii}}\sum_{j=1}^{i-1}a_{ij}x_j^{(k+1)}-\sum_{j=i+1}^{n}a_{ij}x_j^{(k)}; i=1,2,...,n; k=1,2,...,n
+$$
+dimana <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> menyatakan banyaknya iterasi. Dengan tebakan awal <span><span class="MathJax_Preview">x=\left [ x_1^{(0)} x_2^{(0)} ... x_n^{(0)} \right ]^T</span><script type="math/tex">x=\left [ x_1^{(0)} x_2^{(0)} ... x_n^{(0)} \right ]^T</script></span> dan kriteria penghentian iterasi: <span><span class="MathJax_Preview">\underset{1\leq i\leq n}{max}\left | x_1^{(k+1)}-x_i^{(k)} \right |&lt;\epsilon</span><script type="math/tex">\underset{1\leq i\leq n}{max}\left | x_1^{(k+1)}-x_i^{(k)} \right |<\epsilon</script></span></p>
+<p>Tinjau sistem persamaan dengan 3 variable yang tidak diketahui berikut ini .
+$$
+a_1x+b_1y+c_1z=d_1
+$$</p>
+<div>
+<div class="MathJax_Preview">
+a_2x+b_2y+c_2z=d_2
+</div>
+<script type="math/tex; mode=display">
+a_2x+b_2y+c_2z=d_2
+</script>
+</div>
+<div>
+<div class="MathJax_Preview">
+a_3x+b_3y+c_3z=d_3
+</div>
+<script type="math/tex; mode=display">
+a_3x+b_3y+c_3z=d_3
+</script>
+</div>
+<ul>
+<li>Set nilai awal x = y = z = 0.</li>
+</ul>
+<p><span><span class="MathJax_Preview">x=\frac{1}{a_1}(d_1-b_1y-c_1z) \rightarrow (1)</span><script type="math/tex">x=\frac{1}{a_1}(d_1-b_1y-c_1z) \rightarrow (1)</script></span></p>
+<p><span><span class="MathJax_Preview">y=\frac{1}{b_2}(d_2-a_2x-c_2z) \rightarrow (2)</span><script type="math/tex">y=\frac{1}{b_2}(d_2-a_2x-c_2z) \rightarrow (2)</script></span></p>
+<p><span><span class="MathJax_Preview">z=\frac{1}{c_3}(d_3-a_3x-c_3z) \rightarrow (3)</span><script type="math/tex">z=\frac{1}{c_3}(d_3-a_3x-c_3z) \rightarrow (3)</script></span></p>
+<ul>
+<li>Nilai di atas adalah nilai awal <span><span class="MathJax_Preview">x^{(0)}, y^{(0)}, z^{(0)}</span><script type="math/tex">x^{(0)}, y^{(0)}, z^{(0)}</script></span>.  Lalu masukkan nilai awal <span><span class="MathJax_Preview">y^{(0)}</span><script type="math/tex">y^{(0)}</script></span> dan <span><span class="MathJax_Preview">z^{(0)}</span><script type="math/tex">z^{(0)}</script></span> ke persamaan (1) untuk mencari <span><span class="MathJax_Preview">x^{(1)}</span><script type="math/tex">x^{(1)}</script></span>.</li>
+</ul>
+<p><span><span class="MathJax_Preview">x^{(1)}=\frac{1}{a_1}(d_1-b_1y^{(0)}-c_1x^{(0)})</span><script type="math/tex">x^{(1)}=\frac{1}{a_1}(d_1-b_1y^{(0)}-c_1x^{(0)})</script></span></p>
+<ul>
+<li>Kemudian hitung <span><span class="MathJax_Preview">y^{(1)}</span><script type="math/tex">y^{(1)}</script></span> menggunakan nilai <span><span class="MathJax_Preview">x^{(baru)}</span><script type="math/tex">x^{(baru)}</script></span> atau <span><span class="MathJax_Preview">x^{(1)}</span><script type="math/tex">x^{(1)}</script></span> dan <span><span class="MathJax_Preview">z^{(0)}</span><script type="math/tex">z^{(0)}</script></span> ke persamaan (2).</li>
+</ul>
+<p><span><span class="MathJax_Preview">y^{(1)}=\frac{1}{b_2}(d_2-a_2x^{(1)}-c_2z{(0)})</span><script type="math/tex">y^{(1)}=\frac{1}{b_2}(d_2-a_2x^{(1)}-c_2z{(0)})</script></span></p>
+<ul>
+<li>Dengan cara sama, hitung <span><span class="MathJax_Preview">z^{(1)}</span><script type="math/tex">z^{(1)}</script></span> menggunakan nilai x dan y yang baru yaitu <span><span class="MathJax_Preview">x^{(1)}</span><script type="math/tex">x^{(1)}</script></span> dan <span><span class="MathJax_Preview">y^{(1)}</span><script type="math/tex">y^{(1)}</script></span> ke persamaan (3).</li>
+</ul>
+<p><span><span class="MathJax_Preview">z^{(1)}=\frac{1}{c_3}(d_3-a_3x^{(1)})-b_3y^{(1)}</span><script type="math/tex">z^{(1)}=\frac{1}{c_3}(d_3-a_3x^{(1)})-b_3y^{(1)}</script></span></p>
+<ul>
+<li>Lakukan iterasi berikutnya menggunakan nilai baru <span><span class="MathJax_Preview">x^{(1)}, y^{(1)}, z^{(1)}</span><script type="math/tex">x^{(1)}, y^{(1)}, z^{(1)}</script></span>.</li>
+</ul>
+<p><span><span class="MathJax_Preview">x^{(2)}=\frac{1}{a_1}(d_1-b_1y^{(1)}-c_1z^{(1)})</span><script type="math/tex">x^{(2)}=\frac{1}{a_1}(d_1-b_1y^{(1)}-c_1z^{(1)})</script></span></p>
+<p><span><span class="MathJax_Preview">y^{(2)}=\frac{1}{b_2}(d_2-a_2x^{(1)}-c_2z^{(1)})</span><script type="math/tex">y^{(2)}=\frac{1}{b_2}(d_2-a_2x^{(1)}-c_2z^{(1)})</script></span></p>
+<p><span><span class="MathJax_Preview">z^{(2)}=\frac{1}{c_3}(d_3-a_3x^{(1)}-c_3z^{(1)})</span><script type="math/tex">z^{(2)}=\frac{1}{c_3}(d_3-a_3x^{(1)}-c_3z^{(1)})</script></span></p>
+<ul>
+<li>Ulangi proses yang sama hingga nilai iterasi ke-k adalah <span><span class="MathJax_Preview">x^{(k)}, y^{(k)}, z^{(k)}</span><script type="math/tex">x^{(k)}, y^{(k)}, z^{(k)}</script></span>.</li>
+</ul>
+<p><span><span class="MathJax_Preview">x^{(k+1)}=\frac{1}{a_1}(d_1-b_1y^{(k)}-c_1z^{(k)})</span><script type="math/tex">x^{(k+1)}=\frac{1}{a_1}(d_1-b_1y^{(k)}-c_1z^{(k)})</script></span></p>
+<p><span><span class="MathJax_Preview">y^{(k+1)}=\frac{1}{b_2}(d_2-a_2x^{(k)}-c_2z^{(k)})</span><script type="math/tex">y^{(k+1)}=\frac{1}{b_2}(d_2-a_2x^{(k)}-c_2z^{(k)})</script></span></p>
+<p><span><span class="MathJax_Preview">z^{(k+1)}=\frac{1}{c_3}(d_3-a_3x^{(k)}-c_3z^{(k)})</span><script type="math/tex">z^{(k+1)}=\frac{1}{c_3}(d_3-a_3x^{(k)}-c_3z^{(k)})</script></span></p>
+<ul>
+<li>Iterasi terus dilakukan hingga dua nilai yang dihasilkan berturut-turut sama.</li>
+</ul>
                 
                   
                 
