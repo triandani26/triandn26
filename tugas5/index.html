@@ -407,9 +407,21 @@
                 
                 <h1 id="menghitung-estimasi-turunan-menggunakan-richardson-extrapolation"><strong>Menghitung estimasi turunan menggunakan Richardson Extrapolation</strong><a class="headerlink" href="#menghitung-estimasi-turunan-menggunakan-richardson-extrapolation" title="Permanent link">&para;</a></h1>
 <h3 id="richardson-extrapolation">Richardson Extrapolation<a class="headerlink" href="#richardson-extrapolation" title="Permanent link">&para;</a></h3>
-<p><strong>ekstrapolasi Richardson</strong> adalah metode percepatan urutan, yang digunakan untuk meningkatkan laju konvergensi suatu urutan.</p>
-<p>Pandang kembali kaidah trapesium:</p>
-<p><span><span class="MathJax_Preview">\int_{b}^{a} f(x) dx =\frac{h}{2} (f_{0}+2 \sum_{n}^{i=1} f_{i} + f_{n})-\frac{(b-a){f}''(t)}{12}h^{2}</span><script type="math/tex">\int_{b}^{a} f(x) dx =\frac{h}{2} (f_{0}+2 \sum_{n}^{i=1} f_{i} + f_{n})-\frac{(b-a){f}''(t)}{12}h^{2}</script></span></p>
+<p><strong>Ekstrapolasi Richardson</strong> adalah metode percepatan urutan, yang digunakan untuk meningkatkan laju konvergensi suatu urutan.</p>
+<p>Secara umum, kaidah integrasi yang lain dapat kita ditulis sebagai:</p>
+<p><span><span class="MathJax_Preview">\int_{a}^{b}f(x)dx=I(h)+Ch^{q}</span><script type="math/tex">\int_{a}^{b}f(x)dx=I(h)+Ch^{q}</script></span></p>
+<p>dengan <em>C</em> dan <em>q</em> adalah konstanta yang tidak bergantung pada <em>h</em>. Nilai <em>q</em> dapat ditentukan langsung dari orde galat kaidah integrasi, misalnya:</p>
+<p>kaidah trapesium, <span><span class="MathJax_Preview">O(h^{2}) → q = 2</span><script type="math/tex">O(h^{2}) → q = 2</script></span></p>
+<p>kaidah titik-tengah, <span><span class="MathJax_Preview">O(h^{2}) → q = 2</span><script type="math/tex">O(h^{2}) → q = 2</script></span></p>
+<p>kaidah 1/3 Simpson, <span><span class="MathJax_Preview">O(h^{4}) → q = 4</span><script type="math/tex">O(h^{4}) → q = 4</script></span></p>
+<p>Tujuan ekstrapolasi Richardson ialah menghitung nilai integrasi yang lebih baik (improve) dibandingkan dengan <em>I</em>. </p>
+<ol>
+<li>Misalkan <em>J</em> adalah nilai integrasi yang lebih baik daripada <em>I</em> dengan jarak antar titik adalah <em>h</em>: <span><span class="MathJax_Preview">J = I(h) + Ch^{q}</span><script type="math/tex">J = I(h) + Ch^{q}</script></span></li>
+<li>Ekstrapolasikan <em>h</em> menjadi <em>2h</em>, lalu hitung integrasi numeriknya: <span><span class="MathJax_Preview">J = I (2h) + C(2h)^{q}</span><script type="math/tex">J = I (2h) + C(2h)^{q}</script></span></li>
+<li>Eliminasikan <em>C</em> dari kedua persamaan dengan menyamakan persamaan (1) dan persamaan (2): <span><span class="MathJax_Preview">I(h) + Ch^{q} = I (2h) + C(2h)^{q}</span><script type="math/tex">I(h) + Ch^{q} = I (2h) + C(2h)^{q}</script></span></li>
+<li>Sehingga diperoleh: <span><span class="MathJax_Preview">C=\frac{I(h)-I(2h)}{(2^{q}-1)h^{q}}</span><script type="math/tex">C=\frac{I(h)-I(2h)}{(2^{q}-1)h^{q}}</script></span></li>
+<li>Sulihkan (4) ke dalam (3) untuk memperoleh: <span><span class="MathJax_Preview">J=I(h)+\frac{I(h)-I(2h)}{2^{q}-1}</span><script type="math/tex">J=I(h)+\frac{I(h)-I(2h)}{2^{q}-1}</script></span> yang merupakan persamaan <strong>ekstrapolasi Ricahrdson</strong>.</li>
+</ol>
                 
                   
                 
