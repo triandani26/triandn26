@@ -506,6 +506,49 @@ $$</p>
 =-0.0482
 </script>
 </div>
+<p><strong>Program</strong></p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros</span>
+
+<span class="k">def</span> <span class="nf">Oh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">h</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">h</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">richardson_extrapolation</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">j</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">Oh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)),</span> <span class="mi">5</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(((</span><span class="mi">4</span><span class="o">**</span><span class="n">j</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">4</span><span class="o">**</span><span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">((</span><span class="mi">4</span><span class="o">**</span><span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">5</span><span class="p">)</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">D</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;=Tabel Richardson=</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;f(x) = (–0.1x^{4}) – (0.15x^{3}) – (0.5x^{2}) – (0.25x)+ 1.2</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">hasil</span> <span class="o">=</span> <span class="n">richardson_extrapolation</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;hasil estimasi terbaik adalah&#39;</span><span class="p">,</span> <span class="n">hasil</span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">])</span>
+</pre></div>
+
+
+<p><strong>Output</strong></p>
+<div class="codehilite"><pre><span></span><span class="o">=</span><span class="n">Tabel</span> <span class="n">Richardson</span><span class="o">=</span>
+
+<span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="err">–</span><span class="mf">0.1</span><span class="n">x</span><span class="o">^</span><span class="p">{</span><span class="mi">4</span><span class="p">})</span> <span class="err">–</span> <span class="p">(</span><span class="mf">0.15</span><span class="n">x</span><span class="o">^</span><span class="p">{</span><span class="mi">3</span><span class="p">})</span> <span class="err">–</span> <span class="p">(</span><span class="mf">0.5</span><span class="n">x</span><span class="o">^</span><span class="p">{</span><span class="mi">2</span><span class="p">})</span> <span class="err">–</span> <span class="p">(</span><span class="mf">0.25</span><span class="n">x</span><span class="p">)</span><span class="o">+</span> <span class="mf">1.2</span>
+
+<span class="p">[</span><span class="mf">1.08483</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.08988</span> <span class="mf">1.09156</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">1.09115</span> <span class="mf">1.09157</span> <span class="mf">1.09157</span><span class="p">]</span>
+<span class="n">hasil</span> <span class="n">estimasi</span> <span class="n">terbaik</span> <span class="n">adalah</span> <span class="mf">1.09157</span>
+</pre></div>
                 
                   
                 
