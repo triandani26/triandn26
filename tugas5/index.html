@@ -422,102 +422,88 @@
                 <h1 id="menghitung-estimasi-turunan-menggunakan-richardson-extrapolation"><strong>Menghitung estimasi turunan menggunakan Richardson Extrapolation</strong><a class="headerlink" href="#menghitung-estimasi-turunan-menggunakan-richardson-extrapolation" title="Permanent link">&para;</a></h1>
 <h3 id="richardson-extrapolation">Richardson Extrapolation<a class="headerlink" href="#richardson-extrapolation" title="Permanent link">&para;</a></h3>
 <p><strong>Ekstrapolasi Richardson</strong> adalah merupakan metode untuk mengkombinasikan dua perkiraan integral secara numerik untuk memperoleh nilai ketiga, yang lebih akurat.</p>
-<p>Rumus:
+<p>Dalam extrapolasi Richardson ditetapkan <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> dan <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> tertentu.
 $$
-{f}'(h_{1})=\frac{f(x+h_{1})-f(x-h_{1})}{2h_{1}}
-$$</p>
-<div>
-<div class="MathJax_Preview">
-{f}'(h_{2})=\frac{f(x+h_{2})-f(x-h_{2})}{2h_{2}}
-</div>
-<script type="math/tex; mode=display">
-{f}'(h_{2})=\frac{f(x+h_{2})-f(x-h_{2})}{2h_{2}}
-</script>
-</div>
-<p>sehingga,
+f({x})'\simeq \frac{f(x+h)-f(x-h)}{2h}
 $$
-{f}'=\frac{4}{3}{f}'(h_{2})-\frac{1}{3}{f}'(h_{1})
-$$</p>
+Rumus :
+$$
+TV \simeq (AV)h_2 + \frac{(AV)h_2-(AV)h_1}{3}
+$$
+Nb:: TV = True Value; AV = Approximate Value </p>
 <h3 id="implementasi">Implementasi<a class="headerlink" href="#implementasi" title="Permanent link">&para;</a></h3>
-<p>Hitung penyelesaian estimasi pada <span><span class="MathJax_Preview">f’(0.5)</span><script type="math/tex">f’(0.5)</script></span> dari fungsi : <span><span class="MathJax_Preview">f(x) = (–0.1x^{4}) – (0.15x^{3}) – (0.5x^{2}) – (0.25x)+ 1.2</span><script type="math/tex">f(x) = (–0.1x^{4}) – (0.15x^{3}) – (0.5x^{2}) – (0.25x)+ 1.2</script></span> dengan <span><span class="MathJax_Preview">h_{1} = 0.5</span><script type="math/tex">h_{1} = 0.5</script></span> dan <span><span class="MathJax_Preview">h_{2} = 0.25</span><script type="math/tex">h_{2} = 0.25</script></span>.</p>
-<p>Kita misalkan: </p>
-<p><span><span class="MathJax_Preview">f(x+h)</span><script type="math/tex">f(x+h)</script></span> sebagai <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span></p>
-<p><span><span class="MathJax_Preview">f(x-h)</span><script type="math/tex">f(x-h)</script></span> sebagai <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span></p>
-<p>maka:</p>
-<p><span><span class="MathJax_Preview">{f}'(h_{1})=\frac{f(x+h_{1})-f(x-h_{1})}{2h_{1}}</span><script type="math/tex">{f}'(h_{1})=\frac{f(x+h_{1})-f(x-h_{1})}{2h_{1}}</script></span> dapat dianggap juga <span><span class="MathJax_Preview">{f}'(h_{1})=\frac{a-b}{2h_{1}}</span><script type="math/tex">{f}'(h_{1})=\frac{a-b}{2h_{1}}</script></span></p>
-<p>mencari <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> untuk <span><span class="MathJax_Preview">h_{1}=0.5</span><script type="math/tex">h_{1}=0.5</script></span> dengan <span><span class="MathJax_Preview">x=0.5</span><script type="math/tex">x=0.5</script></span>:</p>
-<p><span><span class="MathJax_Preview">f(0.5)=(–0.1(0.5)^{4}+(0.5)) – (0.15(0.5)^{3}+(0.5)) – (0.5(0.5)^{2}+(0.5)) – (0.25(0.5)+(0.5))+1.2</span><script type="math/tex">f(0.5)=(–0.1(0.5)^{4}+(0.5)) – (0.15(0.5)^{3}+(0.5)) – (0.5(0.5)^{2}+(0.5)) – (0.25(0.5)+(0.5))+1.2</script></span></p>
-<p><span><span class="MathJax_Preview">f(0.5)=(0.50625)-(0.51875)-(0.625)-(0.625)+1.2</span><script type="math/tex">f(0.5)=(0.50625)-(0.51875)-(0.625)-(0.625)+1.2</script></span></p>
-<p><span><span class="MathJax_Preview">f(0.5)=-0.0625</span><script type="math/tex">f(0.5)=-0.0625</script></span></p>
-<p>mencari <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> untuk <span><span class="MathJax_Preview">h_{1}=0.5</span><script type="math/tex">h_{1}=0.5</script></span> dengan <span><span class="MathJax_Preview">x=0.5</span><script type="math/tex">x=0.5</script></span>:</p>
-<p><span><span class="MathJax_Preview">f(0.5)=(–0.1(0.5)^{4}-(0.5)) – (0.15(0.5)^{3}-(0.5)) – (0.5(0.5)^{2}-(0.5)) – (0.25(0.5)-(0.5))+1.2</span><script type="math/tex">f(0.5)=(–0.1(0.5)^{4}-(0.5)) – (0.15(0.5)^{3}-(0.5)) – (0.5(0.5)^{2}-(0.5)) – (0.25(0.5)-(0.5))+1.2</script></span></p>
-<p><span><span class="MathJax_Preview">f(0.5)=(-0.49375)-(-0.48125)-(-0.375)-(-0.375)+1.2</span><script type="math/tex">f(0.5)=(-0.49375)-(-0.48125)-(-0.375)-(-0.375)+1.2</script></span></p>
-<p><span><span class="MathJax_Preview">f(0.5)=1.9375</span><script type="math/tex">f(0.5)=1.9375</script></span></p>
-<p>mencari <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> untuk <span><span class="MathJax_Preview">h_{2}=0.25</span><script type="math/tex">h_{2}=0.25</script></span> dengan <span><span class="MathJax_Preview">x=0.5</span><script type="math/tex">x=0.5</script></span>:</p>
-<p><span><span class="MathJax_Preview">f(0.5)=(–0.1(0.5)^{4}+(0.25)) – (0.15(0.5)^{3}+(0.25)) – (0.5(0.5)^{2}+(0.25)) – (0.25(0.5)+(0.25))+1.2</span><script type="math/tex">f(0.5)=(–0.1(0.5)^{4}+(0.25)) – (0.15(0.5)^{3}+(0.25)) – (0.5(0.5)^{2}+(0.25)) – (0.25(0.5)+(0.25))+1.2</script></span></p>
-<p><span><span class="MathJax_Preview">f(0.5)=(-0.0015625)-(0.26875)-(0.375)-(0.375)+1.2</span><script type="math/tex">f(0.5)=(-0.0015625)-(0.26875)-(0.375)-(0.375)+1.2</script></span></p>
-<p><span><span class="MathJax_Preview">f(0.5)=0.1796875</span><script type="math/tex">f(0.5)=0.1796875</script></span></p>
-<p>mencari <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> untuk <span><span class="MathJax_Preview">h_{2}=0.25</span><script type="math/tex">h_{2}=0.25</script></span> dengan <span><span class="MathJax_Preview">x=0.5</span><script type="math/tex">x=0.5</script></span>:</p>
-<p><span><span class="MathJax_Preview">f(0.5)=(–0.1(0.5)^{4}-(0.25)) – (0.15(0.5)^{3}-(0.25)) – (0.5(0.5)^{2}-(0.25)) – (0.25(0.5)-(0.25))+1.2</span><script type="math/tex">f(0.5)=(–0.1(0.5)^{4}-(0.25)) – (0.15(0.5)^{3}-(0.25)) – (0.5(0.5)^{2}-(0.25)) – (0.25(0.5)-(0.25))+1.2</script></span></p>
-<p><span><span class="MathJax_Preview">f(0.5)=(-0.25625)-(-0.23125)-(-0.125)-(-0.125)+1.2</span><script type="math/tex">f(0.5)=(-0.25625)-(-0.23125)-(-0.125)-(-0.125)+1.2</script></span></p>
-<p><span><span class="MathJax_Preview">f(0.5)=1.425</span><script type="math/tex">f(0.5)=1.425</script></span>
+<p>Hitung penyelesaian estimasi pada <span><span class="MathJax_Preview">f’(0.5)</span><script type="math/tex">f’(0.5)</script></span> dari fungsi : <span><span class="MathJax_Preview">f(x) = (–0.1x^{4}) – (0.15x^{3}) – (0.5x^{2}) – (0.25x)+ 1.2</span><script type="math/tex">f(x) = (–0.1x^{4}) – (0.15x^{3}) – (0.5x^{2}) – (0.25x)+ 1.2</script></span> dengan <span><span class="MathJax_Preview">h_{1} = 0.5</span><script type="math/tex">h_{1} = 0.5</script></span> dan <span><span class="MathJax_Preview">h_{2} = 0.25</span><script type="math/tex">h_{2} = 0.25</script></span>.
 $$
-{f}'(h_{1})=\frac{f(x+h_{1})-f(x-h_{1})}{2(h_1)}
+f({x})'\simeq \frac{f(x+h)-f(x-h)}{2h}
+$$
+Untuk <span><span class="MathJax_Preview">h_{1}=0.5</span><script type="math/tex">h_{1}=0.5</script></span>:
+$$
+f{(0.5)}'\cong \frac{f(0.5+0.5)-f(0.5-0.5)}{2(0.5)}
 $$</p>
 <div>
 <div class="MathJax_Preview">
-{f}'(h_{1})=\frac{-0.0625-1.9375}{2(0.5)}
+=\frac{f(1)-f(0)}{1}
 </div>
 <script type="math/tex; mode=display">
-{f}'(h_{1})=\frac{-0.0625-1.9375}{2(0.5)}
+=\frac{f(1)-f(0)}{1}
 </script>
 </div>
-<div>
-<div class="MathJax_Preview">
-f'(h_1)=\frac{-2}{1}=-2
-</div>
-<script type="math/tex; mode=display">
-f'(h_1)=\frac{-2}{1}=-2
-</script>
-</div>
-<p>dan:
+<p>Untuk <span><span class="MathJax_Preview">f(1)</span><script type="math/tex">f(1)</script></span>:</p>
+<p><span><span class="MathJax_Preview">f(x)=(–0.1x^{4}) – (0.15x^{3}) – (0.5x^{2}) – (0.25x)+ 1.2</span><script type="math/tex">f(x)=(–0.1x^{4}) – (0.15x^{3}) – (0.5x^{2}) – (0.25x)+ 1.2</script></span></p>
+<p><span><span class="MathJax_Preview">f(1)=(–0.1(1)^{4}) – (0.15(1)^{3}) – (0.5(1)^{2}) – (0.25(1))+ 1.2</span><script type="math/tex">f(1)=(–0.1(1)^{4}) – (0.15(1)^{3}) – (0.5(1)^{2}) – (0.25(1))+ 1.2</script></span></p>
+<p><span><span class="MathJax_Preview">f(1)=(-0.1)-(0.15)-(0.5)-(0.25)+1.2</span><script type="math/tex">f(1)=(-0.1)-(0.15)-(0.5)-(0.25)+1.2</script></span></p>
+<p><span><span class="MathJax_Preview">f(1)=0.2</span><script type="math/tex">f(1)=0.2</script></span></p>
+<p>Untuk <span><span class="MathJax_Preview">f(0)</span><script type="math/tex">f(0)</script></span>:</p>
+<p><span><span class="MathJax_Preview">f(x)=(–0.1x^{4}) – (0.15x^{3}) – (0.5x^{2}) – (0.25x)+ 1.2</span><script type="math/tex">f(x)=(–0.1x^{4}) – (0.15x^{3}) – (0.5x^{2}) – (0.25x)+ 1.2</script></span></p>
+<p><span><span class="MathJax_Preview">f(0)=(–0.1(0)^{4}) – (0.15(0)^{3}) – (0.5(0)^{2}) – (0.25(0))+ 1.2</span><script type="math/tex">f(0)=(–0.1(0)^{4}) – (0.15(0)^{3}) – (0.5(0)^{2}) – (0.25(0))+ 1.2</script></span></p>
+<p><span><span class="MathJax_Preview">f(0)=1.2</span><script type="math/tex">f(0)=1.2</script></span>
 $$
-{f}'(h_{2})=\frac{f(x+h_{2})-f(x-h_{2})}{2(h_{2})}
+=\frac{0.2-1.2}{1}=1
+$$
+Unruk <span><span class="MathJax_Preview">h_2=0.25</span><script type="math/tex">h_2=0.25</script></span>:
+$$
+f{(0.5)}'\cong \frac{f(0.5+0.25)-f(0.5-0.25)}{2(0.25)}
 $$</p>
 <div>
 <div class="MathJax_Preview">
-{f}'(h_{2})=\frac{0.1796875-1.425}{2(0.25)}
+=\frac{f(0.75)-f(0.25)}{0.5}
 </div>
 <script type="math/tex; mode=display">
-{f}'(h_{2})=\frac{0.1796875-1.425}{2(0.25)}
+=\frac{f(0.75)-f(0.25)}{0.5}
 </script>
 </div>
-<div>
-<div class="MathJax_Preview">
-f'(h_2)=\frac{-1.2453125}{0.5}=-2.490625
-</div>
-<script type="math/tex; mode=display">
-f'(h_2)=\frac{-1.2453125}{0.5}=-2.490625
-</script>
-</div>
-<p>sehingga:
+<p>Untuk <span><span class="MathJax_Preview">f(0.75)</span><script type="math/tex">f(0.75)</script></span>:</p>
+<p><span><span class="MathJax_Preview">f(x)=(–0.1x^{4}) – (0.15x^{3}) – (0.5x^{2}) – (0.25x)+ 1.2</span><script type="math/tex">f(x)=(–0.1x^{4}) – (0.15x^{3}) – (0.5x^{2}) – (0.25x)+ 1.2</script></span></p>
+<p><span><span class="MathJax_Preview">f(0.75)=(–0.1(0.75)^{4}) – (0.15(0.75)^{3}) – (0.5(0.75)^{2}) – (0.25(0.75))+ 1.2</span><script type="math/tex">f(0.75)=(–0.1(0.75)^{4}) – (0.15(0.75)^{3}) – (0.5(0.75)^{2}) – (0.25(0.75))+ 1.2</script></span></p>
+<p><span><span class="MathJax_Preview">f(0.75)=(-0.031640625)-(0.06328125)-(0.28125)-(0.1875)+1.2</span><script type="math/tex">f(0.75)=(-0.031640625)-(0.06328125)-(0.28125)-(0.1875)+1.2</script></span></p>
+<p><span><span class="MathJax_Preview">f(0.75)=0,636328125</span><script type="math/tex">f(0.75)=0,636328125</script></span></p>
+<p>Untuk <span><span class="MathJax_Preview">f(0.25)</span><script type="math/tex">f(0.25)</script></span>:</p>
+<p><span><span class="MathJax_Preview">f(x)=(–0.1x^{4}) – (0.15x^{3}) – (0.5x^{2}) – (0.25x)+ 1.2</span><script type="math/tex">f(x)=(–0.1x^{4}) – (0.15x^{3}) – (0.5x^{2}) – (0.25x)+ 1.2</script></span></p>
+<p><span><span class="MathJax_Preview">f(0.25)=(–0.1(0.25)^{4}) – (0.15(0.25)^{3}) – (0.5(0.25)^{2}) – (0.25(0.25))+ 1.2</span><script type="math/tex">f(0.25)=(–0.1(0.25)^{4}) – (0.15(0.25)^{3}) – (0.5(0.25)^{2}) – (0.25(0.25))+ 1.2</script></span></p>
+<p><span><span class="MathJax_Preview">f(0.25)=(0.000390625‬)-(0.00234375‬)-(0.03125)-(0.0625‬)+1.2</span><script type="math/tex">f(0.25)=(0.000390625‬)-(0.00234375‬)-(0.03125)-(0.0625‬)+1.2</script></span></p>
+<p><span><span class="MathJax_Preview">f(0.25)=1,104296875</span><script type="math/tex">f(0.25)=1,104296875</script></span>
 $$
-{f}'=\frac{4}{3}{f}'(h_{2})-\frac{1}{3}{f}'(h_{1})
+=\frac{0.636328125-1,104296875}{0.5}=-1,572265625
+$$
+<span><span class="MathJax_Preview">h_1=0.5\rightarrow f'(0.5)\simeq 1</span><script type="math/tex">h_1=0.5\rightarrow f'(0.5)\simeq 1</script></span></p>
+<p><span><span class="MathJax_Preview">h_2=0.25\rightarrow f'(0.5)\simeq -1,5723</span><script type="math/tex">h_2=0.25\rightarrow f'(0.5)\simeq -1,5723</script></span>
+$$
+TV \simeq (AV)h_2 + \frac{(AV)h_2-(AV)h_1}{3}
 $$</p>
 <div>
 <div class="MathJax_Preview">
-{f}'=\frac{4}{3}(-2.490625)-\frac{1}{3}(-2)
+=-1,5723+\frac{1-(-1,5723)}{3}
 </div>
 <script type="math/tex; mode=display">
-{f}'=\frac{4}{3}(-2.490625)-\frac{1}{3}(-2)
+=-1,5723+\frac{1-(-1,5723)}{3}
 </script>
 </div>
 <div>
 <div class="MathJax_Preview">
-=
+=-0.0482
 </div>
 <script type="math/tex; mode=display">
-=
+=-0.0482
 </script>
 </div>
                 
