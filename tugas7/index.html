@@ -377,27 +377,87 @@
 <p>Berikut contoh peramalan menggunakan Metode Monte Carlo pada pabrik sepatu X untuk menghitung jumlah permintaan sepatu 10 hari yang akan datang.</p>
 <p><img alt="DATA" src="https://user-images.githubusercontent.com/61718634/83832200-47db6800-a713-11ea-9814-6a7b9dfbd372.PNG" /></p>
 <p>Langkah-langkah:</p>
-<ol>
-<li>Bangkitkan 10 angka random (menyesuaikan berapa banyak angka yang akan dihitung pada simulasi)</li>
-</ol>
+<p>-Bangkitkan 10 angka random (menyesuaikan berapa banyak angka yang akan dihitung pada simulasi)</p>
 <p><img alt="1" src="https://user-images.githubusercontent.com/61718634/83832183-427e1d80-a713-11ea-8bb4-28fadf11cdc5.PNG" /></p>
-<ol>
-<li>Hitung banyak Distribusi Densitasnya</li>
-</ol>
+<p>-Hitung banyak Distribusi Densitasnya</p>
 <p><img alt="2" src="https://user-images.githubusercontent.com/61718634/83832187-4447e100-a713-11ea-8d76-01e514f24dd6.PNG" /></p>
-<ol>
-<li>Hitung fungsi komulatif distribusinya</li>
-</ol>
+<p>-Hitung fungsi komulatif distribusinya</p>
 <p><img alt="3" src="https://user-images.githubusercontent.com/61718634/83832193-45790e00-a713-11ea-9a34-63166f3bfb3d.PNG" /></p>
-<ol>
-<li>Hitung Tag Number</li>
-</ol>
+<p>-Hitung Tag Number</p>
 <p><img alt="4" src="https://user-images.githubusercontent.com/61718634/83832198-46aa3b00-a713-11ea-9798-c3317420e517.PNG" /></p>
-<ol>
-<li>berdasarkan nilai random yang dicocokkan tiap angka pada tag number , maka jumlah pasangan sepatu ialah</li>
-</ol>
+<p>-Berdasarkan nilai random yang dicocokkan tiap angka pada tag number , maka jumlah pasangan sepatu ialah</p>
 <p><img alt="hasil" src="https://user-images.githubusercontent.com/61718634/83832204-490c9500-a713-11ea-8ae3-13016210ee49.PNG" /></p>
-<p>Contoh lain ialah pada penghitungan integral <span><span class="MathJax_Preview">\int_{0}^{1} e^{x} dx</span><script type="math/tex">\int_{0}^{1} e^{x} dx</script></span> dengan <span><span class="MathJax_Preview">n = 25, 50, 100, 200, 400, 800, 16000, 32000.</span><script type="math/tex">n = 25, 50, 100, 200, 400, 800, 16000, 32000.</script></span></p>
+<p>Contoh lain ialah untuk menentukan bahwa <span><span class="MathJax_Preview">\pi = \int_{0}^{2}(4-x^{2})^{1/2} dx</span><script type="math/tex">\pi = \int_{0}^{2}(4-x^{2})^{1/2} dx</script></span> dengan menggunakan 2500 angka acak.</p>
+<p><em>Program</em></p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">2500</span>
+<span class="k">def</span> <span class="nf">fungsi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">4</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+
+<span class="n">area</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">xacak</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xacak</span><span class="p">)):</span>
+        <span class="n">xacak</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">integral</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">integral</span><span class="o">+=</span><span class="n">fungsi</span><span class="p">(</span><span class="n">xacak</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="n">jawab</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="n">integral</span>
+    <span class="n">area</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">jawab</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Hasil phi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">area</span><span class="p">,</span><span class="n">bins</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">ec</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Area&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+
+<p><em>hasil running</em></p>
+<p><img alt="Figure_1" src="https://user-images.githubusercontent.com/61718634/83853685-d49c1b00-a73f-11ea-8cfd-c13aea19626f.png" /></p>
+<p>Contoh lain untuk memperkirakan hasil integral dari <span><span class="MathJax_Preview">\int_{-1}^{1}\int_{-1}^{1}\int_{-1}^{1}(x^{2}+y^{2}+z^{2})dxdydz</span><script type="math/tex">\int_{-1}^{1}\int_{-1}^{1}\int_{-1}^{1}(x^{2}+y^{2}+z^{2})dxdydz</script></span></p>
+<p><em>Program</em></p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">xacak</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">yacak</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">zacak</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">integral</span><span class="o">=</span><span class="mf">0.0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xacak</span><span class="p">)):</span>
+        <span class="n">xacak</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">yacak</span><span class="p">)):</span>
+        <span class="n">yacak</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">zacak</span><span class="p">)):</span>
+        <span class="n">zacak</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">fungsi</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">integral</span><span class="o">+=</span><span class="n">fungsi</span><span class="p">(</span><span class="n">xacak</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">yacak</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">zacak</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="n">jawab</span><span class="o">=</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="n">integral</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;jawab: &quot;</span><span class="p">,</span><span class="n">jawab</span><span class="p">)</span>
+</pre></div>
+
+
+<p><em>Hasil Running</em></p>
+<div class="codehilite"><pre><span></span><span class="n">jawab</span><span class="p">:</span>  <span class="mf">8.155375318733638</span>
+</pre></div>
                 
                   
                 
