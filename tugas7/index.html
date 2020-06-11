@@ -420,6 +420,39 @@
 </pre></div>
 
 
+<p><strong>Penjelasan</strong></p>
+<ol>
+<li>
+<p>pada script line pertama kita mengimport library <strong>scipy</strong> yang nantinya akan digunakan untuk mengambil angka random yang akan di bentuk nantinya</p>
+</li>
+<li>
+<p>script line kedua untuk mengambil library <strong>numpy</strong> yang akan digunakan untuk membuat list desimal</p>
+</li>
+<li>
+<p>script line ketiga untuk mengambil library <strong>matplotlib</strong> yang akan digunakan untuk menampilkan sebuah diagram</p>
+</li>
+<li>
+<p>kita inisialisasikan sesuai soal yang ada , dimana integral batas bawah 0 dan atas 2 , dimana dinisialisasikan sebagai b sebaga bawah dan a sebagai atas. N adalah jumlah angka random yang akan diulang</p>
+</li>
+<li>
+<p>inisialisasikan sebuah fungsi dimana fungsi rumusnya <span><span class="MathJax_Preview">(4-x^2)^{\frac{1}{2}}</span><script type="math/tex">(4-x^2)^{\frac{1}{2}}</script></span></p>
+</li>
+<li>
+<p>ulang i sebanyak n , yang nantinya akan membuat variabel baru bernama <strong>xacak</strong> ntuk diisi angka desimal nantinya</p>
+</li>
+<li>
+<p>dilanjut dengan perulangan didalam perlangan lagi sebanyak jumlah angka yang ada di variabel <strong>xacak</strong> setelah itu diisi dengan angka baru diantara 0-2 seusai dengan batas bawah batas atas integral sehingga akan mendapatkan angka desimal baru</p>
+</li>
+<li>
+<p>pada baris selanjutnya angka tersebut dijumlahkan dengan inisialisasi <strong>integral</strong> yang bernilai 0.0 dengan angka desimal acak yang sudah dibuat sebelumnya dengan menggunakan rumus fungsi terlebih dahulu</p>
+</li>
+<li>
+<p>lalu di hitung kembali kedalam rumus (a-b)/n*integral dimana selisih batas atas batas bawah dibagi dengan jumlah desimal random sebelumnya</p>
+</li>
+<li>
+<p>lalu ditambahkan ke list variabel <strong>area</strong> dimana hasil tersebut nantinya digambarkan ke dalam diagram dengan fungsi <strong>matplotlob</strong> </p>
+</li>
+</ol>
 <p><em>hasil running</em></p>
 <p><img alt="Figure_1" src="https://user-images.githubusercontent.com/61718634/83853685-d49c1b00-a73f-11ea-8cfd-c13aea19626f.png" /></p>
 <p>Contoh lain untuk memperkirakan hasil integral dari <span><span class="MathJax_Preview">\int_{-1}^{1}\int_{-1}^{1}\int_{-1}^{1}(x^{2}+y^{2}+z^{2})dxdydz</span><script type="math/tex">\int_{-1}^{1}\int_{-1}^{1}\int_{-1}^{1}(x^{2}+y^{2}+z^{2})dxdydz</script></span></p>
@@ -455,6 +488,13 @@
 </pre></div>
 
 
+<p><strong>Penjelasan</strong></p>
+<ol>
+<li>inisialisasikan batas bawah , batas atas , dan jumlah angka</li>
+<li>setelah itu inisialisasikan nilai x , y , z yang akan diisi angka random nantinya serta integra = 0.0 yang akan digunakan untuk jumlah akhir</li>
+<li>lakukan perulangan sebanyak 4 kali , dimana didalam tersebut dilakukan perulangan sebanyak N untuk mengisi nilai random x , y , z serta perhitungan angka random tersebut dengan fungsi yang ada</li>
+<li>hasil akhir akan dihitung dengan rumus (a-b)/n*integral . lalu di print untuk ditampilkan</li>
+</ol>
 <p><em>Hasil Running</em></p>
 <div class="codehilite"><pre><span></span><span class="n">jawab</span><span class="p">:</span>  <span class="mf">8.155375318733638</span>
 </pre></div>
